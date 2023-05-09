@@ -5,7 +5,6 @@ public class monthlyexpensetracker{
         questionaires q = new questionaires();
         decisions d = new decisions();
 
-        q.startingPrompt();
         q.clear();
         d.proceed();
     }
