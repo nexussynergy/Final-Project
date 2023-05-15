@@ -1,7 +1,9 @@
 import java.util.*;
+import java.text.DecimalFormat;
 
 public class questionaires {
     Scanner in = new Scanner(System.in);
+    DecimalFormat df = new DecimalFormat("#.00");
     public int choice = 0;
     // 0 - unidentified
     // 1 - true
@@ -10,7 +12,8 @@ public class questionaires {
     int currencyplaceholder;
     boolean error = false;
     boolean incomecon = true;
-    int income;
+    float income;
+    float housingUtilities;
 
     public void heading() {
         System.out.println("LOGISTICS - MONTHLY EXPENSE TRACKER");
@@ -20,6 +23,7 @@ public class questionaires {
     public void clear() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+        System.out.print('\u000C');
     }
 
     public void welcomeMessage() {
@@ -52,13 +56,13 @@ public class questionaires {
             System.out.println("Preferred Currency: " + currencyCode[currencyplaceholder]);
         }
         System.out.print("Input your income per month: ");
-        choice = in.nextInt();
-        income = choice;
+        income = in.nextFloat();
     }
 
     public void incomeConfirmation() {
         System.out.println(
-                "Please confirm if your income per month is " + income + " " + currencyCode[currencyplaceholder] + ".");
+                "Please confirm if your income per month is " + df.format(income) + " "
+                        + currencyCode[currencyplaceholder] + ".");
         System.out.print("To continue please, enter:\n\n1. Confirm\n2. Rewrite");
         if (!error) {
             System.out.print("\nConfirm Input: ");
@@ -68,7 +72,40 @@ public class questionaires {
         choice = in.nextInt();
     }
 
+    public void surveyTermsAndConditions() {
+        choice = 0;
+        System.out.println(
+                "The program will ask you questions about your spending habits to track your monthly expenses.\nThis will help you see where your money is going and identify potential areas for savings\nYou'll be asked specific questions for each expense category, such as how much you spend and if you have recurring bills.\nAnswer accurately for the most helpful insights.");
+        System.out.println("\nDo you agree to this terms and conditions?");
+        System.out.print("1. Agree\n2. Disagree");
+        if (!error) {
+            System.out.print("\nYour answer: ");
+        } else {
+            System.out.print("\nChoose the correct syntax: ");
+        }
+        choice = in.nextInt();
+    }
+
     public void expenseSurvey() {
-        System.out.println("The program will ask you questions about your spending habits to track your monthly expenses. This will help you see where your money is going and identify potential areas for savings. You'll be asked specific questions for each expense category, such as how much you spend and if you have recurring bills. Answer accurately for the most helpful insights.");
+        choice = 0; // ILISDI NIG PANGALAN
+        while (choice < 1 || choice > 2) {
+            clear();
+            heading();
+            System.out.println("Do you rent or own a unit?\n1. Rent\n2. Own");
+            if (!error) {
+                System.out.print("\nYour answer: ");
+            } else {
+                System.out.print("\nChoose the correct syntax: ");
+            }
+            choice = in.nextInt();
+            if(choice < 1 || choice > 2){
+                error = true;
+            }
+        }
+        clear();
+        heading();
+        System.out.println("How much do you pay for rent every month?");
+        System.out.print("\nYour answer: ");
+        housingUtilities = in.nextFloat();
     }
 }

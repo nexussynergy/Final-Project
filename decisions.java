@@ -23,11 +23,6 @@ public class decisions extends questionaires {
             currencyPreference();
             currencyConfirmation();
             incomeLoop();
-            if (choice == 1) {
-                surveyDecisions();
-            } else {
-
-            }
         } else {
             clear();
             heading();
@@ -36,7 +31,7 @@ public class decisions extends questionaires {
     }
 
     public void currencyConfirmation() {
-        while (choice > 5) {
+        while (choice < 1 || choice > 5) {
             clear();
             invalidArgument();
             currencyPreference();
@@ -52,7 +47,7 @@ public class decisions extends questionaires {
             heading();
             income();
             incomeConfirmation();
-            while (choice > 2) {
+            while (choice < 1 || choice > 2) {
                 clear();
                 invalidArgument();
                 incomeConfirmation();
@@ -66,12 +61,27 @@ public class decisions extends questionaires {
         else{
             incomeLoop();
         }
-        surveyDecisions();
     }
 
     public void surveyDecisions() {
+        error = false;
+        choice = 0;
         clear();
         heading();
-        expenseSurvey();
+        while(choice < 1 || choice > 2){
+            clear();
+            invalidArgument();
+            surveyTermsAndConditions();
+        }
+        error = false;
+        if(choice == 1){
+            expenseSurvey();
+        }
+        else if(choice == 2){
+            clear();
+            heading();
+            System.out.println("Thank you for using our system.");
+            System.exit(0);
+        }
     }
 }
