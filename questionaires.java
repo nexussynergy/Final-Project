@@ -12,8 +12,18 @@ public class questionaires {
     int currencyplaceholder;
     boolean error = false;
     boolean incomecon = true;
-    float income;
-    float housingUtilities;
+    double income;
+    double housingUtilities = 0;
+    double housingLivingCost = 0;
+    double groceriesExpenses = 0;
+    double transportationExpenses = 0;
+    double healthCare = 0;
+    double personalSpendingExpenses = 0;
+    double debtPayments = 0;
+    double savingsExpense = 0;
+    double taxDeduct = 0;
+    double childExpense = 0;
+    double totalExpenses = 0;
 
     public void heading() {
         System.out.println("LOGISTICS - MONTHLY EXPENSE TRACKER");
@@ -56,7 +66,7 @@ public class questionaires {
             System.out.println("Preferred Currency: " + currencyCode[currencyplaceholder]);
         }
         System.out.print("Input your income per month: ");
-        income = in.nextFloat();
+        income = in.nextDouble();
     }
 
     public void incomeConfirmation() {
@@ -87,7 +97,8 @@ public class questionaires {
     }
 
     public void expenseSurvey() {
-        choice = 0; // ILISDI NIG PANGALAN
+
+        choice = 0;
         while (choice < 1 || choice > 2) {
             clear();
             heading();
@@ -98,14 +109,209 @@ public class questionaires {
                 System.out.print("\nChoose the correct syntax: ");
             }
             choice = in.nextInt();
-            if(choice < 1 || choice > 2){
+            if (choice < 1 || choice > 2) {
                 error = true;
             }
         }
+
         clear();
         heading();
-        System.out.println("How much do you pay for rent every month?");
+        if (choice == 1) {
+            System.out.println("How much do you pay for rent every month?");
+            System.out.print("\nYour answer: ");
+            housingUtilities += in.nextDouble();
+        }
+
+        clear();
+        heading();
+        System.out.println("What is your monthly utility bill (electricity, water, gas, etc.)?");
         System.out.print("\nYour answer: ");
-        housingUtilities = in.nextFloat();
+        housingUtilities += in.nextDouble();
+
+        clear();
+        heading();
+        System.out.println("How much do you spend on home maintenance and repairs?");
+        System.out.print("\nYour answer: ");
+        housingLivingCost += in.nextDouble();
+
+        clear();
+        heading();
+        System.out.println("What is your monthly cost for internet?");
+        System.out.print("\nYour answer: ");
+        housingLivingCost += in.nextDouble();
+
+        clear();
+        heading();
+        System.out.println("How much do you spend on groceries every month?");
+        System.out.print("\nYour answer: ");
+        groceriesExpenses += in.nextDouble(); 
+
+        choice = 0;
+        while (choice < 1 || choice > 2) {
+            clear();
+            heading();
+            System.out.println("Do you have Car?\n1. Yes\n2. No");
+            if (!error) {
+                System.out.print("\nYour answer: ");
+            } else {
+                System.out.print("\nChoose the correct syntax: ");
+            }
+            choice = in.nextInt();
+            if (choice < 1 || choice > 2) {
+                error = true;
+            }
+        }
+
+        clear();
+        heading();
+        if (choice == 1) {
+            System.out.println("What is your monthly car payment?");
+            System.out.print("\nYour answer: ");
+            transportationExpenses += in.nextDouble();
+            System.out.println("How much do you spend on gas every month?");
+            System.out.print("\nYour answer: ");
+            transportationExpenses += in.nextDouble();
+        } else {
+            System.out.println("Do you use public transportation, and if so, what is your monthly cost?");
+            System.out.print("\nYour answer: ");
+            transportationExpenses += in.nextDouble();
+        }
+        clear();
+        heading();
+        
+
+        choice = 0;
+        while (choice < 1 || choice > 2) {
+            clear();
+            heading();
+            System.out.println("Do you have any monthly medical expenses (such as prescription medication, doctor visits, etc.)?\n1. Yes\n2. No");
+            if (!error) {
+                System.out.print("\nYour answer: ");
+            } else {
+                System.out.print("\nChoose the correct syntax: ");
+            }
+            choice = in.nextInt();
+            if (choice < 1 || choice > 2) {
+                error = true;
+            }
+        }
+
+        clear();
+        heading();
+        if (choice == 1) {
+            System.out.println("How much do you pay for health expenses every month?");
+            System.out.print("\nYour answer: ");
+            healthCare += in.nextDouble();
+        }
+
+        clear();
+        heading();
+        System.out.println("How much do you typically spend on personal items (clothing, grooming, etc.) each month?");
+        System.out.print("\nYour answer: ");
+        personalSpendingExpenses += in.nextDouble();
+
+        clear();
+        heading();
+        System.out.println("How much do you typically spend on eating out and entertainment each month?");
+        System.out.print("\nYour answer: ");
+        personalSpendingExpenses += in.nextDouble();
+
+        choice = 0;
+        while (choice < 1 || choice > 2) {
+            clear();
+            heading();
+            System.out.println("Do you have debt?\n1. Yes\n2. No");
+            if (!error) {
+                System.out.print("\nYour answer: ");
+            } else {
+                System.out.print("\nChoose the correct syntax: ");
+            }
+            choice = in.nextInt();
+            if (choice < 1 || choice > 2) {
+                error = true;
+            }
+        }
+
+        clear();
+        heading();
+        if (choice == 1) {
+            System.out.println("How much do you pay towards any outstanding debts each month (such as credit card payments, student loans, etc.)?");
+            System.out.print("\nYour answer: ");
+            debtPayments += in.nextDouble();
+        }
+
+        clear();
+        heading();
+        System.out.println("How much do you set aside each month for savings?");
+        System.out.print("\nYour answer: ");
+        savingsExpense += in.nextDouble();
+
+        
+        clear();
+        heading();
+        System.out.println("What is your estimated monthly tax payment or deduction (If not applicable please enter 0)");
+        System.out.print("\nYour answer: ");
+        taxDeduct += in.nextDouble();
+
+        choice = 0;
+        while (choice < 1 || choice > 2) {
+            clear();
+            heading();
+            System.out.println("Do you have a child? \n1. Yes\n2. No");
+            if (!error) {
+                System.out.print("\nYour answer: ");
+            } else {
+                System.out.print("\nChoose the correct syntax: ");
+            }
+            choice = in.nextInt();
+            if (choice < 1 || choice > 2) {
+                error = true;
+            }
+        }
+
+        clear();
+        heading();
+        if (choice == 1) {
+            System.out.println("How much do you spend on child care and school tuition each month?");
+            System.out.print("\nYour answer: ");
+            childExpense += in.nextDouble();
+        }
+    }
+
+    public double getInc(){
+        return income;
+    }
+    public double gethousingutil(){
+        return housingUtilities;
+    }
+    public double getHousingLivCost(){
+        return housingLivingCost;
+    }
+    public double getGroceries(){
+        return groceriesExpenses;
+    }
+    public double getTranspo(){
+        return transportationExpenses;
+    }
+    public double getHealthcare(){
+        return healthCare;
+    }
+    public double getPersonalSpend(){
+        return personalSpendingExpenses;
+    }
+    public double getDebtpayments(){
+        return debtPayments;
+    }
+    public double getSavingsExpense(){
+        return savingsExpense;
+    }
+    public double gettaxDeduct(){
+        return taxDeduct;
+    }
+    public double getChildExpense(){
+        return childExpense;
+    }
+    public double getTotalExpenses(){
+        return housingUtilities + housingLivingCost + groceriesExpenses + transportationExpenses + healthCare + personalSpendingExpenses + debtPayments + savingsExpense + taxDeduct + childExpense;
     }
 }
