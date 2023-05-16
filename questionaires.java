@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 public class questionaires {
     Scanner in = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#.00");
+    DecimalFormat z = new DecimalFormat("0.00");
     public int choice = 0;
     // 0 - unidentified
     // 1 - true
@@ -70,9 +71,13 @@ public class questionaires {
     }
 
     public void incomeConfirmation() {
-        System.out.println(
-                "Please confirm if your income per month is " + df.format(income) + " "
-                        + currencyCode[currencyplaceholder] + ".");
+        if(income == 0){
+            System.out.println("Please confirm if your income per month is " + z.format(income) + " " + currencyCode[currencyplaceholder] + ".");
+        }
+        else{
+            System.out.println("Please confirm if your income per month is " + df.format(income) + " " + currencyCode[currencyplaceholder] + ".");
+        }
+        
         System.out.print("To continue please, enter:\n\n1. Confirm\n2. Rewrite");
         if (!error) {
             System.out.print("\nConfirm Input: ");
@@ -276,6 +281,10 @@ public class questionaires {
             System.out.print("\nYour answer: ");
             childExpense += in.nextDouble();
         }
+    }
+
+    public int currencyPlaceholder(){
+        return currencyplaceholder;
     }
 
     public double getInc(){
