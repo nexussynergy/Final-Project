@@ -27,6 +27,7 @@ public class decisions extends questionaires {
             clear();
             heading();
             System.out.println("Thank you for using our system.");
+            System.exit(0);
         }
     }
 

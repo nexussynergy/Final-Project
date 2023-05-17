@@ -74,8 +74,8 @@ public class questionaires {
             while(income <= 0 || income >= 999000000){
                 clear();
                 heading();
-                if(income <0){
-                    System.out.println("Income cannot be negative or zero!");
+                if(income <= 0){
+                    System.out.println("I'm sorry user, the income cannot be negative or zero!");
                 }
                 else if(income >= 999000000){
                     System.out.println("I'm sorry user, the income must not exceed 999 million.");
