@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 public class questionaires {
     Scanner in = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#.00");
-    DecimalFormat z = new DecimalFormat("0.00");
     public int choice = 0;
     // 0 - unidentified
     // 1 - true
@@ -71,12 +70,22 @@ public class questionaires {
     }
 
     public void incomeConfirmation() {
-        if(income == 0){
-            System.out.println("Please confirm if your income per month is " + z.format(income) + " " + currencyCode[currencyplaceholder] + ".");
+        if(income <= 0 || income >= 999000000){
+            while(income <= 0 || income >= 999000000){
+                clear();
+                heading();
+                if(income <0){
+                    System.out.println("Income cannot be negative or zero!");
+                }
+                else if(income >= 999000000){
+                    System.out.println("I'm sorry user, the income must not exceed 999 million.");
+                }
+                
+                System.out.print("Please input your income per month again: ");
+                income = in.nextDouble();
+            }
         }
-        else{
-            System.out.println("Please confirm if your income per month is " + df.format(income) + " " + currencyCode[currencyplaceholder] + ".");
-        }
+        System.out.println("Please confirm if your income per month is " + df.format(income) + " " + currencyCode[currencyplaceholder] + ".");
         
         System.out.print("To continue please, enter:\n\n1. Confirm\n2. Rewrite");
         if (!error) {
