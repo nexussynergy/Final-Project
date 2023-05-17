@@ -323,4 +323,7 @@ public class questionaires {
     public double getTotalExpenses(){
         return housingUtilities + housingLivingCost + groceriesExpenses + transportationExpenses + healthCare + personalSpendingExpenses + debtPayments + savingsExpense + taxDeduct + childExpense;
     }
+    public double getRemBal(){
+        return income - getTotalExpenses();
+    }
 }
