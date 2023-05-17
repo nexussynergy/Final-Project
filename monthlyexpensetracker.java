@@ -18,7 +18,7 @@ public class monthlyexpensetracker{
         q.clear();
         q.heading();
 
-        System.out.println("Your income: " + df.format(d.getInc()));
+        System.out.println("Your income: " + df.format(d.getInc()) + " " + d.currencyCode[d.currencyPlaceholder()]);
         if(d.gethousingutil() >= 0 && d.gethousingutil() < 1){
             System.out.printf("%-50s | %-10s \n", "Housing Utilities Expenses is: " + z.format(d.gethousingutil()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + z.format(d.gethousingutil() / d.getInc() * 100) + "% of your income."); 
         }else{

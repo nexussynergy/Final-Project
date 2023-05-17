@@ -27,7 +27,7 @@ public class questionaires {
 
     public void heading() {
         System.out.println("LOGISTICS - MONTHLY EXPENSE TRACKER");
-        System.out.println("-----------------------------------\n");
+        System.out.println("-----------------------------------z\n");
     }
 
     public void clear() {
@@ -99,7 +99,7 @@ public class questionaires {
     public void surveyTermsAndConditions() {
         choice = 0;
         System.out.println(
-                "The program will ask you questions about your spending habits to track your monthly expenses.\nThis will help you see where your money is going and identify potential areas for savings\nYou'll be asked specific questions for each expense category, such as how much you spend and if you have recurring bills.\nAnswer accurately for the most helpful insights.");
+                "The program will ask you questions about your spending to track your monthly expenses.\nThis will help you see where your money is going and identify potential areas for savings\nYou'll be asked specific questions for each expense category, such as how much you spend and if you have recurring bills.\nAnswer accurately for the most helpful insights.");
         System.out.println("\nDo you agree to this terms and conditions?");
         System.out.print("1. Agree\n2. Disagree");
         if (!error) {
@@ -113,6 +113,7 @@ public class questionaires {
     public void expenseSurvey() {
 
         choice = 0;
+        error = false;
         while (choice < 1 || choice > 2) {
             clear();
             heading();
@@ -161,6 +162,7 @@ public class questionaires {
         groceriesExpenses += in.nextDouble(); 
 
         choice = 0;
+        error = false;
         while (choice < 1 || choice > 2) {
             clear();
             heading();
@@ -195,6 +197,7 @@ public class questionaires {
         
 
         choice = 0;
+        error = false;
         while (choice < 1 || choice > 2) {
             clear();
             heading();
@@ -231,6 +234,7 @@ public class questionaires {
         personalSpendingExpenses += in.nextDouble();
 
         choice = 0;
+        error = false;
         while (choice < 1 || choice > 2) {
             clear();
             heading();
@@ -268,6 +272,7 @@ public class questionaires {
         taxDeduct += in.nextDouble();
 
         choice = 0;
+        error = false;
         while (choice < 1 || choice > 2) {
             clear();
             heading();
