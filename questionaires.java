@@ -27,7 +27,7 @@ public class questionaires {
 
     public void heading() {
         System.out.println("LOGISTICS - MONTHLY EXPENSE TRACKER");
-        System.out.println("-----------------------------------z\n");
+        System.out.println("-----------------------------------\n");
     }
 
     public void clear() {

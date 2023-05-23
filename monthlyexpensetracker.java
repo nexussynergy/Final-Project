@@ -122,10 +122,7 @@ public class monthlyexpensetracker{
         in.close();
     }
 
-    /* FLAW SHITS
-     * 
-     *
-     * 
+    /* 
      * ADDITIONAL INFORMATION
      * text library decimal format
      * text formatting %-10s justify
