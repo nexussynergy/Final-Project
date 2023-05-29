@@ -99,7 +99,7 @@ public class questionaires {
     public void surveyTermsAndConditions() {
         choice = 0;
         System.out.println(
-                "The program will ask you questions about your spending to track your monthly expenses.\nThis will help you see where your money is going and identify potential areas for savings\nYou'll be asked specific questions for each expense category, such as how much you spend and if you have recurring bills.\nAnswer accurately for the most helpful insights.");
+                "The program will help you see where your money is going and identify potential areas for savings\nYou'll be asked specific questions for each expense category, such as how much you spend and if you have recurring bills.\nAnswer accurately for the most helpful insights.");
         System.out.println("\nDo you agree to this terms and conditions?");
         System.out.print("1. Agree\n2. Disagree");
         if (!error) {
