@@ -11,7 +11,6 @@ public class monthlyexpensetracker{
         decisions d = new decisions();
 
         q.clear();
-        
         d.proceed();
 
         //summary

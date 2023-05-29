@@ -12,6 +12,7 @@ public class questionaires {
     int currencyplaceholder;
     boolean error = false;
     boolean incomecon = true;
+    boolean inputmismatch = false;
     double income;
     double housingUtilities = 0;
     double housingLivingCost = 0;
@@ -45,7 +46,13 @@ public class questionaires {
         } else {
             System.out.print("\nChoose the correct syntax: ");
         }
-        choice = in.nextInt();
+        try{
+            choice = in.nextInt();
+        }
+        catch(InputMismatchException e){
+            in.nextLine();
+            choice = 0;
+        }
     }
 
     public void currencyPreference() {
@@ -58,15 +65,39 @@ public class questionaires {
         } else {
             System.out.print("\nChoose the correct syntax: ");
         }
-        choice = in.nextInt();
+        try{
+            choice = in.nextInt();
+        }
+        catch(InputMismatchException e){
+            in.nextLine();
+            choice = 0;
+        }
     }
 
     public void income() {
         if (incomecon) {
             System.out.println("Preferred Currency: " + currencyCode[currencyplaceholder]);
         }
-        System.out.print("Input your income per month: ");
-        income = in.nextDouble();
+        if(!inputmismatch){
+            System.out.print("Input your income this month: ");
+        }
+        else{
+            System.out.println("Program does not accept non-numerical values!");
+            System.out.print("Input your income this month: ");
+        }
+        
+        try{
+            inputmismatch = false;
+            income = in.nextDouble();
+        }
+        catch(InputMismatchException e){
+            in.nextLine();
+            income = 0;
+            inputmismatch = true;
+            clear();
+            heading();
+            income();
+        }
     }
 
     public void incomeConfirmation() {
@@ -77,12 +108,23 @@ public class questionaires {
                 if(income <= 0){
                     System.out.println("I'm sorry user, the income cannot be negative or zero!");
                 }
+                else if(inputmismatch == true){
+                    System.out.println("I'm sorry user, you cannot input non-numerical values!");
+                }
                 else if(income >= 999000000){
                     System.out.println("I'm sorry user, the income must not exceed 999 million.");
                 }
-                
                 System.out.print("Please input your income per month again: ");
-                income = in.nextDouble();
+                try{
+                    inputmismatch = false;
+                    income = in.nextDouble();
+                }
+                catch(InputMismatchException e){
+                    in.nextLine();
+                    income = 0;
+                    inputmismatch = true;
+                    incomeConfirmation();
+                }
             }
         }
         System.out.println("Please confirm if your income per month is " + df.format(income) + " " + currencyCode[currencyplaceholder] + ".");
@@ -90,10 +132,23 @@ public class questionaires {
         System.out.print("To continue please, enter:\n\n1. Confirm\n2. Rewrite");
         if (!error) {
             System.out.print("\nConfirm Input: ");
-        } else {
+        }
+        else if(inputmismatch){
+            System.out.println("\nProgram does not accept non-numerical values!");
+            System.out.print("Choose the correct syntax: ");
+        }
+        else {
             System.out.print("\nChoose the correct syntax: ");
         }
-        choice = in.nextInt();
+        try{
+            inputmismatch = false;
+            choice = in.nextInt();
+        }
+        catch(InputMismatchException e){
+            in.nextLine();
+            inputmismatch = true;
+            choice = 0;
+        }
     }
 
     public void surveyTermsAndConditions() {
@@ -103,15 +158,27 @@ public class questionaires {
         System.out.println("\nDo you agree to this terms and conditions?");
         System.out.print("1. Agree\n2. Disagree");
         if (!error) {
-            System.out.print("\nYour answer: ");
-        } else {
+            System.out.print("\nConfirm Input: ");
+        }
+        else if(inputmismatch){
+            System.out.println("\nProgram does not accept non-numerical values!");
+            System.out.print("Choose the correct syntax: ");
+        }
+        else {
             System.out.print("\nChoose the correct syntax: ");
         }
-        choice = in.nextInt();
+        try{
+            inputmismatch = false;
+            choice = in.nextInt();
+        }
+        catch(InputMismatchException e){
+            in.nextLine();
+            inputmismatch = true;
+            choice = 0;
+        }
     }
 
     public void expenseSurvey() {
-
         choice = 0;
         error = false;
         while (choice < 1 || choice > 2) {
@@ -119,11 +186,24 @@ public class questionaires {
             heading();
             System.out.println("Do you rent or own a unit?\n1. Rent\n2. Own");
             if (!error) {
-                System.out.print("\nYour answer: ");
-            } else {
+                System.out.print("\nConfirm Input: ");
+            }
+            else if(inputmismatch){
+                System.out.println("\nProgram does not accept non-numerical values!");
+                System.out.print("Choose the correct syntax: ");
+            }
+            else {
                 System.out.print("\nChoose the correct syntax: ");
             }
-            choice = in.nextInt();
+            try{
+                inputmismatch = false;
+                choice = in.nextInt();
+            }
+            catch(InputMismatchException e){
+                in.nextLine();
+                inputmismatch = true;
+                choice = 0;
+            }
             if (choice < 1 || choice > 2) {
                 error = true;
             }

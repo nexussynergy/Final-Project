@@ -76,6 +76,7 @@ public class decisions extends questionaires {
         }
         error = false;
         if(choice == 1){
+            //work diri next sa expense
             expenseSurvey();
         }
         else if(choice == 2){
