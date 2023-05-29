@@ -121,9 +121,9 @@ public class monthlyexpensetracker{
         in.close();
     }
 
-    /* 
-     * ADDITIONAL INFORMATION
-     * text library decimal format
-     * text formatting %-10s justify
-    */
+    /*
+     * THINGS TO DEBUG
+     * 
+     * q7 non numerical input ug katong dapit sa "do you use public transpo"
+     */
 }
