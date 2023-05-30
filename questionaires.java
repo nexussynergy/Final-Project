@@ -58,7 +58,7 @@ public class questionaires {
             in.nextLine();
             choice = 0;
         }
-        count++;
+        count = 1;
     }
 
     public void currencyPreference() {
@@ -80,7 +80,7 @@ public class questionaires {
             in.nextLine();
             choice = 0;
         }
-        count++;
+        count = 2;
     }
 
     public void income() {
@@ -108,7 +108,7 @@ public class questionaires {
             heading();
             income();
         }
-        count++;
+        count = 3;
     }
 
     public void incomeConfirmation() {
@@ -156,7 +156,7 @@ public class questionaires {
             inputmismatch = true;
             choice = 0;
         }
-        count++;
+        count = 4;
     }
 
     public void surveyTermsAndConditions() {
@@ -184,32 +184,29 @@ public class questionaires {
             inputmismatch = true;
             choice = 0;
         }
-        count++;
+        count = 5;
     }
 
     public void question0() {
         count = 5;
         choice = 0;
         error = false;
-        while(choice < 1 || choice > 3) {
+        while (choice < 1 || choice > 3) {
             clear();
             heading();
             System.out.println("Do you rent or own a unit?\n1. Rent\n2. Own\n3. Back");
             if (!error) {
                 System.out.print("\nConfirm Input: ");
-            }
-            else if(inputmismatch && error){
+            } else if (inputmismatch && error) {
                 System.out.println("\nProgram does not accept non-numerical values!");
                 System.out.print("Choose the correct syntax: ");
-            }
-            else if(error){
+            } else if (error) {
                 System.out.print("\nChoose the correct syntax: ");
             }
-            try{
+            try {
                 inputmismatch = false;
                 choice = in.nextInt();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
                 error = true;
@@ -219,209 +216,189 @@ public class questionaires {
                 error = true;
             }
 
-            if(choice == 3){
+            if (choice == 3) {
                 error = false;
                 count = 4;
-            }else if(choice == 1 || choice == 2){
+            } else if (choice == 1 || choice == 2) {
                 count = 6;
                 error = false;
             }
         }
     }
 
-    public void question1(){
+    public void question1() {
         count = 6;
         clear();
         heading();
         if (choice == 1) {
             System.out.println("How much do you pay for rent this month?\n-1. Back");
-            if(inputmismatch){
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
-            }
-            else if(error){
+            } else if (error) {
                 System.out.println("\nPlease enter a positive value! Only -1 is accepted");
             }
             System.out.print("\nYour answer: ");
-            try{
+            try {
                 inputmismatch = false;
                 temporaryinput = in.nextDouble();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
                 question1();
             }
 
-            if(temporaryinput == -1){
+            if (temporaryinput == -1) {
                 count = 5;
                 error = false;
-            }
-            else if(temporaryinput >= 0){
+            } else if (temporaryinput >= 0) {
                 housingUtilities += temporaryinput;
                 error = false;
                 temporaryinput = 0;
-                count++;
-            }
-            else if(temporaryinput < -1){
+                count = 7;
+            } else if (temporaryinput < -1) {
                 error = true;
             }
         }
     }
-        
-    public void question2(){
+
+    public void question2() {
         count = 7;
         clear();
         heading();
         System.out.println("What is your monthly utility bill (electricity, water, gas, etc.)?\n-1. Back");
-        if(inputmismatch){
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
-        }
-        else if(error){
+        } else if (error) {
             System.out.println("\nPlease enter a positive value! Only -1 is accepted");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
             temporaryinput = in.nextDouble();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
             question2();
         }
-        
-        if(temporaryinput == -1){
+
+        if (temporaryinput == -1) {
             count = 6;
             error = false;
-        }
-        else if(temporaryinput >= 0){
+        } else if (temporaryinput >= 0) {
             housingUtilities += temporaryinput;
             error = false;
             temporaryinput = 0;
-            count++;
-        }
-        else if(temporaryinput < -1){
+            count = 8;
+        } else if (temporaryinput < -1) {
             error = true;
         }
     }
 
-    public void question3(){
+    public void question3() {
         count = 8;
         clear();
         heading();
         System.out.println("How much do you spend on home maintenance and repairs?\n-1. Back");
-        if(inputmismatch){
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
-        }
-        else if(error){
+        } else if (error) {
             System.out.println("\nPlease enter a positive value! Only -1 is accepted");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
             temporaryinput = in.nextDouble();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
             question3();
         }
-        
-        if(temporaryinput == -1){
+
+        if (temporaryinput == -1) {
             count = 7;
             error = false;
-        }
-        else if(temporaryinput >= 0){
+        } else if (temporaryinput >= 0) {
             housingLivingCost += temporaryinput;
             error = false;
             temporaryinput = 0;
-            count++;
-        }
-        else if(temporaryinput < -1){
+            count = 9;
+        } else if (temporaryinput < -1) {
             error = true;
         }
     }
 
-    public void question4(){
+    public void question4() {
         count = 9;
         clear();
         heading();
         System.out.println("What is your monthly cost for internet?\n-1. Back");
-        if(inputmismatch){
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
-        }
-        else if(error){
+        } else if (error) {
             System.out.println("\nPlease enter a positive value! Only -1 is accepted");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
             temporaryinput = in.nextDouble();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
             question4();
         }
-        
-        if(temporaryinput == -1){
+
+        if (temporaryinput == -1) {
             count = 8;
             error = false;
-        }
-        else if(temporaryinput >= 0){
+        } else if (temporaryinput >= 0) {
             housingLivingCost += temporaryinput;
             error = false;
             temporaryinput = 0;
-            count++;
-        }
-        else if(temporaryinput < -1){
+            count = 10;
+        } else if (temporaryinput < -1) {
             error = true;
         }
     }
 
-    public void question5(){
+    public void question5() {
         count = 10;
         clear();
         heading();
         System.out.println("How much do you spend on this month?\n-1. Back");
-        if(inputmismatch){
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
-        }
-        else if(error){
+        } else if (error) {
             System.out.println("\nPlease enter a positive value! Only -1 is accepted");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
             temporaryinput = in.nextDouble();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question5(); //ilisdan
+            question5(); // ilisdan
         }
-        
-        if(temporaryinput == -1){
-            count = 9; //ilisdan
+
+        if (temporaryinput == -1) {
+            count = 9; // ilisdan
             error = false;
-        }
-        else if(temporaryinput >= 0){
-            groceriesExpenses += temporaryinput; //ilisdan
+        } else if (temporaryinput >= 0) {
+            groceriesExpenses += temporaryinput; // ilisdan
             error = false;
             temporaryinput = 0;
-            count++;
-        }
-        else if(temporaryinput < -1){
+            count = 11;
+        } else if (temporaryinput < -1) {
             error = true;
         }
     }
 
-    public void question6(){
+    public void question6() {
         count = 11;
         choice = 0;
         error = false;
@@ -429,7 +406,7 @@ public class questionaires {
             clear();
             heading();
             System.out.println("Do you have Car?\n1. Yes\n2. No\n3. Back");
-            if(inputmismatch){
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             }
             if (!error) {
@@ -437,11 +414,10 @@ public class questionaires {
             } else {
                 System.out.print("\nChoose the correct syntax: ");
             }
-            try{
+            try {
                 inputmismatch = false;
                 choice = in.nextInt();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
                 choice = 0;
@@ -451,147 +427,137 @@ public class questionaires {
                 error = true;
             }
 
-            if(choice == 3){
+            if (choice == 3) {
                 error = false;
                 count = 10;
-            }else if(choice == 1 || choice == 2){
+            } else if (choice == 1 || choice == 2) {
                 count = 12;
             }
         }
+        followup = 0;
     }
 
-    public void question7(){
+    public void question7() {
         count = 12;
         if (choice == 1) {
-            choice = 0;
-            if(followup > -1 && followup < 2){
-                if(followup == 0){
+            if (followup > -1 && followup < 2) {
+                if (followup == 0) {
                     clear();
                     heading();
                     System.out.println("What is your monthly car payment?\n-1. Back");
-                    if(inputmismatch){
+                    if (inputmismatch) {
                         System.out.println("\nProgram does not accept non-numerical values!");
-                    }
-                    else if(error){
+                    } else if (!inputmismatch && error) {
                         System.out.println("\nPlease enter a positive value! Only -1 is accepted");
                     }
                     System.out.print("\nYour answer: ");
-                    try{
+                    try {
                         inputmismatch = false;
-                        followup = 1;
                         temporaryinput = in.nextDouble();
-                    }
-                    catch(InputMismatchException e){
+                    } catch (InputMismatchException e) {
                         in.nextLine();
                         inputmismatch = true;
-                        temporaryinput = 0;
+                        temporaryinput = 0; // for error
                         followup = 0;
-                        question7(); //ilisdan
+                        question7();
                     }
-                    
-                    if(temporaryinput == -1){
-                        count = 11; //ilisdan
+
+                    if (temporaryinput == -1) {
+                        count = 11; // ilisdan
                         followup = 0;
                         error = false;
-                    }
-                    else if(temporaryinput >= 0){
-                        transportationExpenses += temporaryinput; //ilisdan
+                    } else if (temporaryinput >= 0) {
+                        transportationExpenses += temporaryinput; // ilisdan
                         error = false;
                         followup = 1;
                         temporaryinput = 0;
-                    }
-                    else if(temporaryinput < -1){
+                    } else if (temporaryinput < -1) {
                         error = true;
                     }
-                }
-                else if(followup == 1){
+
+                } else if (followup == 1) {
                     clear();
                     heading();
                     System.out.println("How much do you spend on gas every month?\n-1. Back");
-                    if(inputmismatch){
+                    if (inputmismatch) {
                         System.out.println("\nProgram does not accept non-numerical values!");
-                    }
-                    else if(error){
+                    } else if (error) {
                         System.out.println("\nPlease enter a positive value! Only -1 is accepted");
                     }
                     System.out.print("\nYour answer: ");
-                    try{
+                    try {
                         inputmismatch = false;
-                        temporaryinput = in.nextDouble();
                         followup = 2;
-                    }
-                    catch(InputMismatchException e){
+                        temporaryinput = in.nextDouble();
+                    } catch (InputMismatchException e) {
                         in.nextLine();
                         inputmismatch = true;
                         temporaryinput = 0;
                         followup = 1;
-                        question7(); //ilisdan
+                        question7(); // ilisdan
                     }
-                    
-                    if(temporaryinput == -1){
-                        count = 12; //ilisdan
+
+                    if (temporaryinput == -1) {
+                        count = 12; // ilisdan
                         followup = 0;
                         error = false;
-                    }
-                    else if(temporaryinput >= 0){
-                        transportationExpenses += temporaryinput; //ilisdan
+                    } else if (temporaryinput >= 0) {
+                        transportationExpenses += temporaryinput; // ilisdan
                         error = false;
                         followup = 2;
-                        temporaryinput = 0;
-                    }
-                    else if(temporaryinput < -1){
+                        count = 13;
+                        temporaryinput = 1;
+                    } else if (temporaryinput < -1) {
                         error = true;
                     }
                 }
-            }  
+            }
         } else {
-            choice = 0;
             clear();
             heading();
             System.out.println("Do you use public transportation, and if so, what is your monthly cost?\n-1. Back");
-            if(inputmismatch){
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
-            }
-            else if(error){
-                        System.out.println("\nPlease enter a positive value! Only -1 is accepted");
+            } else if (error) {
+                System.out.println("\nPlease enter a positive value! Only -1 is accepted");
             }
             System.out.print("\nYour answer: ");
-            try{
+            try {
                 inputmismatch = false;
                 temporaryinput = in.nextDouble();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question7(); //ilisdan
+                choice = 0;
+                question7(); // ilisdan
             }
-            
-            if(temporaryinput == -1){
-                followup = 1;
-                count = 11; //ilisdan
+
+            if (temporaryinput == -1) {
+                followup = 0;
+                count = 11; // ilisdan
                 error = false;
-            }
-            else if(temporaryinput >= 0){
-                transportationExpenses += temporaryinput; //ilisdan
+            } else if (temporaryinput >= 0) {
+                transportationExpenses += temporaryinput; // ilisdan
                 error = false;
                 temporaryinput = 0;
-            }
-            else if(temporaryinput < -1){
+                count = 13;
+            } else if (temporaryinput < -1) {
                 error = true;
             }
         }
     }
 
-    public void question8(){
+    public void question8() {
         count = 13;
         choice = 0;
         error = false;
-        while (choice < 1 || choice > 2) {
+        if (choice < 1 || choice > 3) {
             clear();
             heading();
-            System.out.println("Do you have any monthly medical expenses (such as prescription medication, doctor visits, etc.)?\n1. Yes\n2. No\n3. Back");
-            if(inputmismatch){
+            System.out.println(
+                    "Do you have any monthly medical expenses (such as prescription medication, doctor visits, etc.)?\n1. Yes\n2. No\n3. Back");
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             }
             if (!error) {
@@ -599,11 +565,10 @@ public class questionaires {
             } else {
                 System.out.print("\nChoose the correct syntax: ");
             }
-            try{
+            try {
                 inputmismatch = false;
                 choice = in.nextInt();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
                 choice = 0;
@@ -613,108 +578,145 @@ public class questionaires {
                 error = true;
             }
 
-            if(choice == 3){
+            if (choice == 3) {
                 error = false;
+                if (temporaryinput == 1) {
+                    choice = 1;
+                    followup = 1;
+                } else {
+                    choice = 2;
+                }
                 count = 12;
-            }else if(choice == 1 || choice == 2){
-                count++;
+            } else if (choice == 1) {
+                count = 14;
+                temporaryinput = 1;
+            } else if (choice == 2) {
+                count = 15;
+                temporaryinput = 0;
             }
         }
     }
 
-    public void question9(){
+    public void question9() {
         count = 14;
         clear();
         heading();
         if (choice == 1) {
             System.out.println("How much do you pay for health expenses this month?\n-1. Back");
-            if(inputmismatch){
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
-            }
-            else if(error){
+            } else if (error) {
                 System.out.println("\nPlease enter a positive value! Only -1 is accepted");
             }
             System.out.print("\nYour answer: ");
-            try{
+            try {
                 inputmismatch = false;
                 temporaryinput = in.nextDouble();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question9(); //ilisdan
+                question9(); // ilisdan
             }
-            
-            if(temporaryinput == -1){
-                count = 13; //ilisdan
+
+            if (temporaryinput == -1) {
+                count = 13; // ilisdan
+                choice = 0;
                 error = false;
-            }
-            else if(temporaryinput >= 0){
-                healthCare += temporaryinput; //ilisdan
+            } else if (temporaryinput >= 0) {
+                healthCare += temporaryinput; // ilisdan
                 error = false;
                 temporaryinput = 0;
-                count++;
-            }
-            else if(temporaryinput < -1){
+                count = 15;
+            } else if (temporaryinput < -1) {
                 error = true;
             }
         }
+        choice = 1;
     }
 
-    public void question10(){
+    public void question10() {
         count = 15;
         clear();
         heading();
-        System.out.println("How much do you typically spend on personal items (clothing, grooming, etc.) this month?\n-1. Back");
-        if(inputmismatch){
+        System.out.println(
+                "How much do you typically spend on personal items (clothing, grooming, etc.) this month?\n-1. Back");
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
+        } else if (error) {
+            System.out.println("\nPlease enter a positive value! Only -1 is accepted");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
-            personalSpendingExpenses += in.nextDouble();
-        }
-        catch(InputMismatchException e){
+            temporaryinput = in.nextDouble();
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
-            personalSpendingExpenses = 0;
-            question10();
+            temporaryinput = 0;
+            question10(); // ilisdan
         }
-        count++;
+
+        if (temporaryinput == -1) {
+            if (choice == 1) {
+                count = 14;
+            } else {
+                count = 13;
+            }
+            error = false;
+        } else if (temporaryinput >= 0) {
+            personalSpendingExpenses += temporaryinput; // ilisdan
+            error = false;
+            temporaryinput = 0;
+            count = 16;
+        } else if (temporaryinput < -1) {
+            error = true;
+        }
     }
 
-    public void question11(){
+    public void question11() {
         count = 16;
         clear();
         heading();
-        System.out.println("How much do you typically spend on eating out and entertainment each month?");
-        if(inputmismatch){
+        System.out.println("How much do you typically spend on eating out and entertainment each month?\n-1. Back");
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
+        } else if (error) {
+            System.out.println("\nPlease enter a positive value! Only -1 is accepted");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
-            personalSpendingExpenses += in.nextDouble();
-        }
-        catch(InputMismatchException e){
+            temporaryinput = in.nextDouble();
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
-            personalSpendingExpenses = 0;
-            question11();
+            temporaryinput = 0;
+            question11(); // ilisdan
         }
-        count++;
+
+        if (temporaryinput == -1) {
+            count = 15; // ilisdan
+            error = false;
+        } else if (temporaryinput >= 0) {
+            personalSpendingExpenses += temporaryinput; // ilisdan
+            error = false;
+            temporaryinput = 0;
+            count = 17;
+        } else if (temporaryinput < -1) {
+            error = true;
+        }
     }
 
-    public void question12(){
+    public void question12() {
         count = 17;
         choice = 0;
         error = false;
-        while (choice < 1 || choice > 2) {
+        if (choice < 1 || choice > 3) {
             clear();
             heading();
-            System.out.println("Do you have debt?\n1. Yes\n2. No");
-            if(inputmismatch){
+            System.out.println("Do you have debt?\n1. Yes\n2. No\n3. Back");
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             }
             if (!error) {
@@ -722,100 +724,150 @@ public class questionaires {
             } else {
                 System.out.print("\nChoose the correct syntax: ");
             }
-            try{
+            try {
                 inputmismatch = false;
                 choice = in.nextInt();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
                 choice = 0;
                 question12();
             }
-            if (choice < 1 || choice > 2) {
+            if (choice < 1 || choice > 3) {
                 error = true;
             }
+
+            if (choice == 3) {
+                error = false;
+                count = 16;
+            } else if (choice == 1) {
+                count = 18;
+                temporaryinput = 1;
+            } else if (choice == 2) {
+                count = 19;
+                temporaryinput = 0;
+            }
         }
-        count++;
     }
 
-    public void question13(){
+    public void question13() {
         count = 18;
         clear();
         heading();
         if (choice == 1) {
-            System.out.println("How much do you pay towards any outstanding debts each month (such as credit card payments, student loans, etc.)?");
-            if(inputmismatch){
+            System.out.println(
+                    "How much do you pay towards any outstanding debts each month (such as credit card payments, student loans, etc.)?\n-1. Back");
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
+            } else if (error) {
+                System.out.println("\nPlease enter a positive value! Only -1 is accepted");
             }
             System.out.print("\nYour answer: ");
-            try{
+            try {
                 inputmismatch = false;
-                debtPayments += in.nextDouble();
-            }
-            catch(InputMismatchException e){
+                temporaryinput = in.nextDouble();
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
-                debtPayments = 0;
-                question13();
+                temporaryinput = 0;
+                question13(); // ilisdan
+            }
+
+            if (temporaryinput == -1) {
+                count = 17; // ilisdan
+                choice = 0;
+                error = false;
+            } else if (temporaryinput >= 0) {
+                debtPayments += temporaryinput; // ilisdan
+                error = false;
+                temporaryinput = 0;
+                count = 19;
+            } else if (temporaryinput < -1) {
+                error = true;
             }
         }
-        count++;
     }
 
-    public void question14(){
+    public void question14() {
         count = 19;
         clear();
         heading();
-        System.out.println("How much do you set aside each month for savings?");
-        if(inputmismatch){
+        System.out.println("How much do you set aside each month for savings?\n-1. Back");
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
-            savingsExpense += in.nextDouble();
-        }
-        catch(InputMismatchException e){
+            temporaryinput = in.nextDouble();
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
-            savingsExpense = 0;
-            question14();
+            temporaryinput = 0;
+            question14(); // ilisdan
         }
-        count++;
+
+        if (temporaryinput == -1) {
+            if(choice == 1){
+                count = 18;
+            }
+            else if(choice == 2){
+                count = 17;
+            }
+            error = false;
+        } else if (temporaryinput >= 0) {
+            savingsExpense += temporaryinput; // ilisdan
+            error = false;
+            temporaryinput = 0;
+            count = 20;
+        } else if (temporaryinput < -1) {
+            error = true;
+        }
     }
-        
-    public void question15(){
+
+    public void question15() {
+        //flagged. tax system dev to come up
         count = 20;
         clear();
         heading();
-        System.out.println("What is your estimated monthly tax payment or deduction (If not applicable please enter 0)");
-        if(inputmismatch){
+        System.out.println("What is your estimated monthly tax payment or deduction (If not applicable please enter 0)\n-1. Back");
+        if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         }
         System.out.print("\nYour answer: ");
-        try{
+        try {
             inputmismatch = false;
-            taxDeduct += in.nextDouble();
-        }
-        catch(InputMismatchException e){
+            temporaryinput = in.nextDouble();
+        } catch (InputMismatchException e) {
             in.nextLine();
             inputmismatch = true;
-            taxDeduct = 0;
-            question15();
+            temporaryinput = 0;
+            question15(); // ilisdan
         }
-        count++;
+
+        if (temporaryinput == -1) {
+            count = 19; // ilisdan
+            choice = 0;
+            error = false;
+        } else if (temporaryinput >= 0) {
+            taxDeduct += temporaryinput; // ilisdan
+            error = false;
+            temporaryinput = 0;
+            count = 21;
+        } else if (temporaryinput < -1) {
+            error = true;
+        }
     }
 
-    public void question16(){
+    public void question16() {
         count = 21;
         choice = 0;
         error = false;
-        while (choice < 1 || choice > 2) {
+        while (choice < 1 || choice > 3) {
             clear();
             heading();
-            System.out.println("Do you have a child? \n1. Yes\n2. No");
-            if(inputmismatch){
+            System.out.println("Do you have a child? \n1. Yes\n2. No\n3. Back");
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             }
             if (!error) {
@@ -823,47 +875,67 @@ public class questionaires {
             } else {
                 System.out.print("\nChoose the correct syntax: ");
             }
-            try{
+            try {
                 inputmismatch = false;
                 choice = in.nextInt();
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
+                error = true;
                 choice = 0;
-                question16();
             }
-            if (choice < 1 || choice > 2) {
+            if (choice < 1 || choice > 3) {
                 error = true;
             }
+
+            if (choice == 3) {
+                error = false;
+                count = 20;
+            } else if (choice == 1) {
+                count = 22;
+                error = false;
+            }
+            else if(choice == 2){
+                count = 23;
+                error = false;
+            }
         }
-        count++;
     }
 
-    public void question17(){
+    public void question17() {
         count = 22;
         clear();
         heading();
         if (choice == 1) {
-            System.out.println("How much do you spend on child care and school tuition each month?");
-            if(inputmismatch){
+            System.out.println("How much do you spend on child care and school tuition each month?\n-1. Back");
+            if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             }
             System.out.print("\nYour answer: ");
-            try{
+            try {
                 inputmismatch = false;
-                childExpense += in.nextDouble();
-            }
-            catch(InputMismatchException e){
+                temporaryinput = in.nextDouble();
+            } catch (InputMismatchException e) {
                 in.nextLine();
                 inputmismatch = true;
-                childExpense = 0;
-                question17();
+                temporaryinput = 0;
+                question17(); // ilisdan
+            }
+
+            if (temporaryinput == -1) {
+                count = 21; // ilisdan
+                choice = 0;
+                error = false;
+            } else if (temporaryinput >= 0) {
+                childExpense += temporaryinput; // ilisdan
+                error = false;
+                temporaryinput = 0;
+                count = 23;
+            } else if (temporaryinput < -1) {
+                error = true;
             }
         }
-        count++;
     }
-
 
     public int currencyPlaceholder() {
         return currencyplaceholder;

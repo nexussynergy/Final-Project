@@ -124,6 +124,10 @@ public class monthlyexpensetracker{
     /*
      * THINGS TO DEBUG
      * 
-     * q7 non numerical input ug katong dapit sa "do you use public transpo"
+     * divide utilities expense
+     * ALL PROMPTS MUST BE REVISED
+     * q13
+     * repeated prompts = stackable values, solution equal to new variables each
+     * q line 830 - flagged. tax system dev to come up
      */
 }

@@ -97,6 +97,30 @@ public class decisions extends questionaires {
             else if(count == 14){
                 question9();
             }
+            else if(count == 15){
+                question10();
+            }
+            else if(count == 16){
+                question11();
+            }
+            else if(count == 17){
+                question12();
+            }
+            else if(count == 18){
+                question13();
+            }
+            else if(count == 19){
+                question14();
+            }
+            else if(count == 20){
+                question15();
+            }
+            else if(count == 21){
+                question16();
+            }
+            else if(count == 22){
+                question17();
+            }
         }
     }
 
