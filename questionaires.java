@@ -18,16 +18,31 @@ public class questionaires {
     double temporaryinput;
     double income;
     double housingUtilities = 0;
-    double housingLivingCost = 0;
     double groceriesExpenses = 0;
-    double transportationExpenses = 0;
     double healthCare = 0;
-    double personalSpendingExpenses = 0;
     double debtPayments = 0;
     double savingsExpense = 0;
     double taxDeduct = 0;
     double childExpense = 0;
     double totalExpenses = 0;
+
+    // housingutil
+    double payForRent = 0;
+    double electricity = 0;
+    double water = 0;
+
+    // housinglivingcost
+    double homeMaintenance = 0;
+    double internet = 0;
+
+    // transportation
+    double carPayment = 0;
+    double carGas = 0;
+    double publicTransportation = 0;
+
+    // personalspending
+    double personalItems = 0;
+    double eating = 0;
 
     public void heading() {
         System.out.println("LOGISTICS - MONTHLY EXPENSE TRACKER");
@@ -219,8 +234,11 @@ public class questionaires {
             if (choice == 3) {
                 error = false;
                 count = 4;
-            } else if (choice == 1 || choice == 2) {
+            } else if (choice == 1) {
                 count = 6;
+                error = false;
+            } else if (choice == 2) {
+                count = 7;
                 error = false;
             }
         }
@@ -252,7 +270,7 @@ public class questionaires {
                 count = 5;
                 error = false;
             } else if (temporaryinput >= 0) {
-                housingUtilities += temporaryinput;
+                payForRent = temporaryinput;
                 error = false;
                 temporaryinput = 0;
                 count = 7;
@@ -266,33 +284,69 @@ public class questionaires {
         count = 7;
         clear();
         heading();
-        System.out.println("What is your utility bill this month (electricity, water, gas, etc.)?\n-1. Back");
-        if (inputmismatch) {
-            System.out.println("\nProgram does not accept non-numerical values!");
-        } else if (error) {
-            System.out.println("\nPlease enter a positive value! Only -1 is accepted");
-        }
-        System.out.print("\nYour answer: ");
-        try {
-            inputmismatch = false;
-            temporaryinput = in.nextDouble();
-        } catch (InputMismatchException e) {
-            in.nextLine();
-            inputmismatch = true;
-            temporaryinput = 0;
-            question2();
-        }
+        if (followup == 0) {
+            System.out.println("What is your utility bill this month for electricity?\n-1. Back");
+            if (inputmismatch) {
+                System.out.println("\nProgram does not accept non-numerical values!");
+            } else if (error) {
+                System.out.println("\nPlease enter a positive value! Only -1 is accepted");
+            }
+            System.out.print("\nYour answer: ");
+            try {
+                inputmismatch = false;
+                temporaryinput = in.nextDouble();
+            } catch (InputMismatchException e) {
+                in.nextLine();
+                inputmismatch = true;
+                temporaryinput = 0;
+                question2();
+            }
 
-        if (temporaryinput == -1) {
-            count = 6;
-            error = false;
-        } else if (temporaryinput >= 0) {
-            housingUtilities += temporaryinput;
-            error = false;
-            temporaryinput = 0;
-            count = 8;
-        } else if (temporaryinput < -1) {
-            error = true;
+            if (temporaryinput == -1) {
+                if (choice == 1) {
+                    count = 6;
+                } else if (choice == 2) {
+                    count = 5;
+                }
+                error = false;
+            } else if (temporaryinput >= 0) {
+                electricity = temporaryinput;
+                error = false;
+                temporaryinput = 0;
+                followup = 1;
+            } else if (temporaryinput < -1) {
+                error = true;
+            }
+        } else if (followup == 1) {
+            System.out.println("What is your utility bill this month for water?\n-1. Back");
+            if (inputmismatch) {
+                System.out.println("\nProgram does not accept non-numerical values!");
+            } else if (error) {
+                System.out.println("\nPlease enter a positive value! Only -1 is accepted");
+            }
+            System.out.print("\nYour answer: ");
+            try {
+                inputmismatch = false;
+                temporaryinput = in.nextDouble();
+            } catch (InputMismatchException e) {
+                in.nextLine();
+                inputmismatch = true;
+                temporaryinput = 0;
+                question2();
+            }
+
+            if (temporaryinput == -1) {
+                followup = 0;
+                error = false;
+            } else if (temporaryinput >= 0) {
+                water = temporaryinput;
+                error = false;
+                temporaryinput = 0;
+                followup = 0;
+                count = 8;
+            } else if (temporaryinput < -1) {
+                error = true;
+            }
         }
     }
 
@@ -319,9 +373,10 @@ public class questionaires {
 
         if (temporaryinput == -1) {
             count = 7;
+            followup = 1;
             error = false;
         } else if (temporaryinput >= 0) {
-            housingLivingCost += temporaryinput;
+            homeMaintenance = temporaryinput;
             error = false;
             temporaryinput = 0;
             count = 9;
@@ -355,7 +410,7 @@ public class questionaires {
             count = 8;
             error = false;
         } else if (temporaryinput >= 0) {
-            housingLivingCost += temporaryinput;
+            internet = temporaryinput;
             error = false;
             temporaryinput = 0;
             count = 10;
@@ -389,7 +444,7 @@ public class questionaires {
             count = 9; // ilisdan
             error = false;
         } else if (temporaryinput >= 0) {
-            groceriesExpenses += temporaryinput; // ilisdan
+            groceriesExpenses = temporaryinput; // ilisdan
             error = false;
             temporaryinput = 0;
             count = 11;
@@ -467,7 +522,7 @@ public class questionaires {
                         followup = 0;
                         error = false;
                     } else if (temporaryinput >= 0) {
-                        transportationExpenses += temporaryinput; // ilisdan
+                        carPayment = temporaryinput; // ilisdan
                         error = false;
                         followup = 1;
                         temporaryinput = 0;
@@ -502,7 +557,7 @@ public class questionaires {
                         followup = 0;
                         error = false;
                     } else if (temporaryinput >= 0) {
-                        transportationExpenses += temporaryinput; // ilisdan
+                        carGas = temporaryinput; // ilisdan
                         error = false;
                         followup = 2;
                         count = 13;
@@ -538,7 +593,7 @@ public class questionaires {
                 count = 11; // ilisdan
                 error = false;
             } else if (temporaryinput >= 0) {
-                transportationExpenses += temporaryinput; // ilisdan
+                publicTransportation = temporaryinput; // ilisdan
                 error = false;
                 temporaryinput = 0;
                 count = 13;
@@ -624,7 +679,7 @@ public class questionaires {
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                healthCare += temporaryinput; // ilisdan
+                healthCare = temporaryinput; // ilisdan
                 error = false;
                 temporaryinput = 0;
                 count = 15;
@@ -665,7 +720,7 @@ public class questionaires {
             }
             error = false;
         } else if (temporaryinput >= 0) {
-            personalSpendingExpenses += temporaryinput; // ilisdan
+            personalItems = temporaryinput; // ilisdan
             error = false;
             temporaryinput = 0;
             count = 16;
@@ -699,7 +754,7 @@ public class questionaires {
             count = 15; // ilisdan
             error = false;
         } else if (temporaryinput >= 0) {
-            personalSpendingExpenses += temporaryinput; // ilisdan
+            eating = temporaryinput; // ilisdan
             error = false;
             temporaryinput = 0;
             count = 17;
@@ -778,7 +833,7 @@ public class questionaires {
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                debtPayments += temporaryinput; // ilisdan
+                debtPayments = temporaryinput; // ilisdan
                 error = false;
                 temporaryinput = 0;
                 count = 19;
@@ -816,7 +871,7 @@ public class questionaires {
             }
             error = false;
         } else if (temporaryinput >= 0) {
-            savingsExpense += temporaryinput; // ilisdan
+            savingsExpense = temporaryinput; // ilisdan
             error = false;
             temporaryinput = 0;
             count = 20;
@@ -980,7 +1035,7 @@ public class questionaires {
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                childExpense += temporaryinput; // ilisdan
+                childExpense = temporaryinput; // ilisdan
                 error = false;
                 temporaryinput = 0;
                 count = 23;
@@ -1003,7 +1058,7 @@ public class questionaires {
     }
 
     public double getHousingLivCost() {
-        return housingLivingCost;
+        return homeMaintenance + internet;
     }
 
     public double getGroceries() {
@@ -1011,7 +1066,7 @@ public class questionaires {
     }
 
     public double getTranspo() {
-        return transportationExpenses;
+        return carPayment + carGas + publicTransportation;
     }
 
     public double getHealthcare() {
@@ -1019,7 +1074,7 @@ public class questionaires {
     }
 
     public double getPersonalSpend() {
-        return personalSpendingExpenses;
+        return personalItems + eating;
     }
 
     public double getDebtpayments() {
@@ -1039,8 +1094,9 @@ public class questionaires {
     }
 
     public double getTotalExpenses() {
-        return housingUtilities + housingLivingCost + groceriesExpenses + transportationExpenses + healthCare
-                + personalSpendingExpenses + debtPayments + taxDeduct + childExpense;
+        return housingUtilities + homeMaintenance + internet + groceriesExpenses + carPayment + carGas
+                + publicTransportation + healthCare
+                + personalItems + eating + debtPayments + taxDeduct + childExpense;
     }
 
     public double getRemBal() {
