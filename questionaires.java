@@ -165,7 +165,7 @@ public class questionaires {
         clear();
         heading();
         System.out.println(
-                "The program will help you see where your money is going and identify potential areas for savings\nYou'll be asked specific questions for each expense category, such as how much you spend and if you have recurring bills.\nAnswer accurately for the most helpful insights.");
+                "You'll be asked specific questions for each expense category, such as how much you spend for entertainment, child care, and if you have bills this month.\nAnswer accurately for the most helpful insights.");
         System.out.println("\nDo you agree to this terms and conditions?");
         System.out.print("1. Agree\n2. Disagree\n3. Back");
         if (!error) {
@@ -266,7 +266,7 @@ public class questionaires {
         count = 7;
         clear();
         heading();
-        System.out.println("What is your monthly utility bill (electricity, water, gas, etc.)?\n-1. Back");
+        System.out.println("What is your utility bill this month (electricity, water, gas, etc.)?\n-1. Back");
         if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         } else if (error) {
@@ -334,7 +334,7 @@ public class questionaires {
         count = 9;
         clear();
         heading();
-        System.out.println("What is your monthly cost for internet?\n-1. Back");
+        System.out.println("What is your internet cost for this month?\n-1. Back");
         if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         } else if (error) {
@@ -368,7 +368,7 @@ public class questionaires {
         count = 10;
         clear();
         heading();
-        System.out.println("How much do you spend on this month?\n-1. Back");
+        System.out.println("How much do you spend on groceries this month?\n-1. Back");
         if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         } else if (error) {
@@ -444,7 +444,7 @@ public class questionaires {
                 if (followup == 0) {
                     clear();
                     heading();
-                    System.out.println("What is your monthly car payment?\n-1. Back");
+                    System.out.println("How much is your car payment this month?\n-1. Back");
                     if (inputmismatch) {
                         System.out.println("\nProgram does not accept non-numerical values!");
                     } else if (!inputmismatch && error) {
@@ -478,7 +478,7 @@ public class questionaires {
                 } else if (followup == 1) {
                     clear();
                     heading();
-                    System.out.println("How much do you spend on gas every month?\n-1. Back");
+                    System.out.println("How much do you spend on gas this current month?\n-1. Back");
                     if (inputmismatch) {
                         System.out.println("\nProgram does not accept non-numerical values!");
                     } else if (error) {
@@ -515,7 +515,7 @@ public class questionaires {
         } else {
             clear();
             heading();
-            System.out.println("Do you use public transportation, and if so, what is your monthly cost?\n-1. Back");
+            System.out.println("Do you use public transportation, and if so, what is your cost this month?\n-1. Back");
             if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             } else if (error) {
@@ -678,7 +678,7 @@ public class questionaires {
         count = 16;
         clear();
         heading();
-        System.out.println("How much do you typically spend on eating out and entertainment each month?\n-1. Back");
+        System.out.println("How much do you spend on eating out and entertainment this month?\n-1. Back");
         if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         } else if (error) {
@@ -756,7 +756,7 @@ public class questionaires {
         heading();
         if (choice == 1) {
             System.out.println(
-                    "How much do you pay towards any outstanding debts each month (such as credit card payments, student loans, etc.)?\n-1. Back");
+                    "How much do you pay towards any outstanding debts this month (such as credit card payments, student loans, etc.)?\n-1. Back");
             if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             } else if (error) {
@@ -792,7 +792,7 @@ public class questionaires {
         count = 19;
         clear();
         heading();
-        System.out.println("How much do you set aside each month for savings?\n-1. Back");
+        System.out.println("How much do you set aside this month for savings? (This will not be deducted from your income)\n-1. Back");
         if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         }
@@ -906,7 +906,7 @@ public class questionaires {
         clear();
         heading();
         if (choice == 1) {
-            System.out.println("How much do you spend on child care and school tuition each month?\n-1. Back");
+            System.out.println("How much do you spend on child care and school tuition this month?\n-1. Back");
             if (inputmismatch) {
                 System.out.println("\nProgram does not accept non-numerical values!");
             }
