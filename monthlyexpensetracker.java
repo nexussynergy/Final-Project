@@ -96,10 +96,10 @@ public class monthlyexpensetracker{
             
         }
         else{
-            if((d.getTotalExpenses() - d.getInc()) - 100 >= 0 || ((d.getTotalExpenses() - d.getInc()) - 100 < 1)){
-                System.out.printf("%-50s | %-10s \n", "Your exceeding balance is: " +  z.format(d.getTotalExpenses() - d.getInc()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + z.format((d.getRemBal() / d.getInc() * 100) * -1) + "% of your income.");
+            if((d.getTotalExpenses() - d.getInc()) >= 0 && ((d.getTotalExpenses() - d.getInc()) < 1)){
+                System.out.printf("%-50s | %-10s \n", "Your exceeding balance is: " +  z.format((d.getTotalExpenses() - d.getInc()) - d.getSavingsExpense()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + z.format((d.getRemBal() / d.getInc() * 100) * -1) + "% of your income.");
             }else{
-                System.out.printf("%-50s | %-10s \n", "Your exceeding balance is: " +  df.format(d.getTotalExpenses() - d.getInc()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + df.format((d.getRemBal() / d.getInc() * 100) * -1) + "% of your income.");
+                System.out.printf("%-50s | %-10s \n", "Your exceeding balance is: " +  df.format((d.getTotalExpenses() - d.getInc()) - d.getSavingsExpense()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + df.format((d.getRemBal() / d.getInc() * 100) * -1) + "% of your income.");
             }
         }
         

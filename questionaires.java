@@ -811,7 +811,7 @@ public class questionaires {
             if(choice == 1){
                 count = 18;
             }
-            else if(choice == 2){
+            else if(choice == 0 || choice == 2 || choice == 3){
                 count = 17;
             }
             error = false;
@@ -847,7 +847,6 @@ public class questionaires {
 
         if (temporaryinput == -1) {
             count = 19; // ilisdan
-            choice = 0;
             error = false;
         } else if (temporaryinput >= 0) {
             taxDeduct += temporaryinput; // ilisdan
@@ -991,6 +990,6 @@ public class questionaires {
     }
 
     public double getRemBal() {
-        return income - getTotalExpenses();
+        return (getInc() - getTotalExpenses()) + getSavingsExpense();
     }
 }
