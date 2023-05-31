@@ -792,7 +792,8 @@ public class questionaires {
         count = 19;
         clear();
         heading();
-        System.out.println("How much do you set aside this month for savings? (This will not be deducted from your income)\n-1. Back");
+        System.out.println(
+                "How much do you set aside this month for savings? (This will not be deducted from your income)\n-1. Back");
         if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         }
@@ -808,10 +809,9 @@ public class questionaires {
         }
 
         if (temporaryinput == -1) {
-            if(choice == 1){
+            if (choice == 1) {
                 count = 18;
-            }
-            else if(choice == 0 || choice == 2 || choice == 3){
+            } else if (choice == 0 || choice == 2 || choice == 3) {
                 count = 17;
             }
             error = false;
@@ -826,36 +826,91 @@ public class questionaires {
     }
 
     public void question15() {
-        //flagged. tax system dev to come up
         count = 20;
-        clear();
-        heading();
-        System.out.println("What is your estimated monthly tax payment or deduction (If not applicable please enter 0)\n-1. Back");
-        if (inputmismatch) {
-            System.out.println("\nProgram does not accept non-numerical values!");
-        }
-        System.out.print("\nYour answer: ");
-        try {
-            inputmismatch = false;
-            temporaryinput = in.nextDouble();
-        } catch (InputMismatchException e) {
-            in.nextLine();
-            inputmismatch = true;
-            temporaryinput = 0;
-            question15(); // ilisdan
-        }
+        switch (currencyplaceholder) {
+            case 0:
+                // USD
+                if (income <= 11000) {
+                    taxDeduct = .10;
+                } else if (income >= 11001 && income < 44725) {
+                    taxDeduct = 0.12;
+                } else if (income >= 44726 && income < 95375) {
+                    taxDeduct = 0.22;
+                } else if (income >= 95376 && income < 182100) {
+                    taxDeduct = 0.24;
+                } else if (income >= 182101 && income < 231250) {
+                    taxDeduct = 0.32;
+                } else if (income >= 231251 && income < 578125) {
+                    taxDeduct = 0.35;
+                } else {
+                    taxDeduct = 0.37;
+                }
+                break;
+            case 1:
+                // EUR
+                if (income <= 15000) {
+                    taxDeduct = 0.23;
+                } else if (income >= 15001 && income <= 28000) {
+                    taxDeduct = 0.25;
+                } else if (income >= 28001 && income <= 50000) {
+                    taxDeduct = 0.35;
+                } else {
+                    taxDeduct = 0.43;
+                }
+                break;
+            case 2:
+                // INR
+                if (income <= 300000) {
+                    taxDeduct = 0;
+                } else if (income >= 300001 && income <= 600000) {
+                    taxDeduct = 0.5;
+                } else if (income >= 600001 && income <= 900000) {
+                    taxDeduct = 0.10;
+                } else if (income >= 900001 && income <= 1200000) {
+                    taxDeduct = 0.15;
+                } else if (income >= 1200001 && income <= 1500000) {
+                    taxDeduct = 0.20;
+                } else {
+                    taxDeduct = 0.30;
+                }
+                break;
+            case 3:
+                // JPY
+                if (income <= 1950000) {
+                    taxDeduct = 0.5;
+                } else if (income >= 1950001 && income <= 3300000) {
+                    taxDeduct = 0.10;
+                } else if (income >= 3300001 && income <= 6950000) {
+                    taxDeduct = 0.20;
+                } else if (income >= 6950001 && income <= 9000000) {
+                    taxDeduct = 0.23;
+                } else if (income >= 9000001 && income <= 18000000) {
+                    taxDeduct = 0.33;
+                } else if (income >= 18000001 && income <= 40000000) {
+                    taxDeduct = 0.40;
+                } else {
+                    taxDeduct = 0.45;
+                }
+                break;
+            case 4:
+                // PHP
+                if (income < 20833) {
+                    taxDeduct = 0;
+                } else if (income >= 20833 && income < 33333) {
+                    taxDeduct = 0.20 * income;
+                } else if (income >= 33333 && income < 66667) {
+                    taxDeduct = (.25 * income) + 2500;
+                } else if (income >= 66667 && income < 166667) {
+                    taxDeduct = (.30 * income) + 10833.33;
+                } else if (income >= 166667 && income < 666667) {
+                    taxDeduct = (.32 * income) + 40833.33;
+                } else {
+                    taxDeduct = (.35 * income) + 200833.33;
+                }
+                break;
 
-        if (temporaryinput == -1) {
-            count = 19; // ilisdan
-            error = false;
-        } else if (temporaryinput >= 0) {
-            taxDeduct += temporaryinput; // ilisdan
-            error = false;
-            temporaryinput = 0;
-            count = 21;
-        } else if (temporaryinput < -1) {
-            error = true;
         }
+        count = 21;
     }
 
     public void question16() {
@@ -889,12 +944,11 @@ public class questionaires {
 
             if (choice == 3) {
                 error = false;
-                count = 20;
+                count = 19;
             } else if (choice == 1) {
                 count = 22;
                 error = false;
-            }
-            else if(choice == 2){
+            } else if (choice == 2) {
                 count = 23;
                 error = false;
             }

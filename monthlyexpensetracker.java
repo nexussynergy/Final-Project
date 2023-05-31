@@ -89,9 +89,9 @@ public class monthlyexpensetracker{
         if(d.getTotalExpenses() < d.getInc()){
             //if 0 ang percentage
             if((d.getInc() - d.getTotalExpenses()) >= 0 || (d.getInc() - d.getTotalExpenses() < 1)){
-                System.out.printf("%-50s | %-10s \n", "Your remaining balance is: " +  z.format(d.getInc() - d.getTotalExpenses()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + z.format(d.getRemBal() / d.getInc() * 100) + "% of your income.");
+                System.out.printf("%-50s | %-10s \n", "Your remaining balance is: " +  z.format((d.getInc() - d.getTotalExpenses()) + d.getSavingsExpense()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + z.format(d.getRemBal() / d.getInc() * 100) + "% of your income.");
             }else{
-                System.out.printf("%-50s | %-10s \n", "Your remaining balance is: " +  df.format(d.getInc() - d.getTotalExpenses()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + df.format(d.getRemBal() / d.getInc() * 100) + "% of your income.");
+                System.out.printf("%-50s | %-10s \n", "Your remaining balance is: " +  df.format((d.getInc() - d.getTotalExpenses()) + d.getSavingsExpense()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + df.format(d.getRemBal() / d.getInc() * 100) + "% of your income.");
             }
             
         }
@@ -109,14 +109,8 @@ public class monthlyexpensetracker{
             System.out.println("I am proud of you for staying on budget and saving money this month."); //good job kay naay sobra ug nakasave paka
         }
         else{
-            if(d.getSavingsExpense() + d.getInc() > d.getTotalExpenses()){
-                System.out.println("You should use your savings to cover up the exceeded budget because you still have " +  df.format(d.getSavingsExpense()+ d.getInc()) + " " + d.currencyCode[d.currencyPlaceholder()]);
-                System.out.println("Don't worry, you can still save " + ((d.getSavingsExpense() + d.getInc()) - d.getTotalExpenses()) + " " + d.currencyCode[d.currencyPlaceholder()]);
-            }
-            else{
-                System.out.println("You have insufficient funds, you still need " + (((d.getSavingsExpense() + d.getInc()) - d.getTotalExpenses()) * -1) + " " + d.currencyCode[d.currencyPlaceholder()]);
+                System.out.println("You have insufficient funds.");
                 System.out.println("Please save more in order to meet the budget for the next month.");
-            }
         }
         in.close();
     }
@@ -126,7 +120,6 @@ public class monthlyexpensetracker{
      * 
      * divide utilities expense
      * ALL PROMPTS MUST BE REVISED
-     * q13
      * repeated prompts = stackable values, solution equal to new variables each
      * q line 830 - flagged. tax system dev to come up
      */
