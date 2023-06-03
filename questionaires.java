@@ -14,7 +14,6 @@ public class questionaires {
     boolean inputmismatch = false;
     double temporaryinput;
     double income;
-    double housingUtilities = 0;
     double groceriesExpenses = 0;
     double healthCare = 0;
     double debtPayments = 0;
@@ -1044,7 +1043,7 @@ public class questionaires {
     }
 
     public double gethousingutil() {
-        return housingUtilities;
+        return payForRent + electricity + water;
     }
 
     public double getHousingLivCost() {
@@ -1084,7 +1083,7 @@ public class questionaires {
     }
 
     public double getTotalExpenses() {
-        return housingUtilities + homeMaintenance + internet + groceriesExpenses + carPayment + carGas
+        return payForRent + electricity + water + homeMaintenance + internet + groceriesExpenses + carPayment + carGas
                 + publicTransportation + healthCare
                 + personalItems + eating + debtPayments + taxDeduct + childExpense;
     }
