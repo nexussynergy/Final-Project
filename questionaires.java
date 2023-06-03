@@ -878,29 +878,29 @@ public class questionaires {
                 if (income <= 11000) {
                     taxDeduct = .10;
                 } else if (income >= 11001 && income < 44725) {
-                    taxDeduct = 0.12;
+                    taxDeduct = 0.12 * income;
                 } else if (income >= 44726 && income < 95375) {
-                    taxDeduct = 0.22;
+                    taxDeduct = 0.22 * income;
                 } else if (income >= 95376 && income < 182100) {
-                    taxDeduct = 0.24;
+                    taxDeduct = 0.24 * income;
                 } else if (income >= 182101 && income < 231250) {
-                    taxDeduct = 0.32;
+                    taxDeduct = 0.32 * income;
                 } else if (income >= 231251 && income < 578125) {
-                    taxDeduct = 0.35;
+                    taxDeduct = 0.35 * income;
                 } else {
-                    taxDeduct = 0.37;
+                    taxDeduct = 0.37 * income;
                 }
                 break;
             case 1:
                 // EUR
                 if (income <= 15000) {
-                    taxDeduct = 0.23;
+                    taxDeduct = 0.23 * income;
                 } else if (income >= 15001 && income <= 28000) {
-                    taxDeduct = 0.25;
+                    taxDeduct = 0.25 * income;
                 } else if (income >= 28001 && income <= 50000) {
-                    taxDeduct = 0.35;
+                    taxDeduct = 0.35 * income;
                 } else {
-                    taxDeduct = 0.43;
+                    taxDeduct = 0.43 * income;
                 }
                 break;
             case 2:
@@ -908,33 +908,33 @@ public class questionaires {
                 if (income <= 300000) {
                     taxDeduct = 0;
                 } else if (income >= 300001 && income <= 600000) {
-                    taxDeduct = 0.5;
+                    taxDeduct = 0.5 * income;
                 } else if (income >= 600001 && income <= 900000) {
-                    taxDeduct = 0.10;
+                    taxDeduct = 0.10 * income;
                 } else if (income >= 900001 && income <= 1200000) {
-                    taxDeduct = 0.15;
+                    taxDeduct = 0.15 * income;
                 } else if (income >= 1200001 && income <= 1500000) {
-                    taxDeduct = 0.20;
+                    taxDeduct = 0.20 * income;
                 } else {
-                    taxDeduct = 0.30;
+                    taxDeduct = 0.30 * income;
                 }
                 break;
             case 3:
                 // JPY
                 if (income <= 1950000) {
-                    taxDeduct = 0.5;
+                    taxDeduct = 0.5 * income;
                 } else if (income >= 1950001 && income <= 3300000) {
-                    taxDeduct = 0.10;
+                    taxDeduct = 0.10 * income;
                 } else if (income >= 3300001 && income <= 6950000) {
-                    taxDeduct = 0.20;
+                    taxDeduct = 0.20 * income;
                 } else if (income >= 6950001 && income <= 9000000) {
-                    taxDeduct = 0.23;
+                    taxDeduct = 0.23 * income;
                 } else if (income >= 9000001 && income <= 18000000) {
-                    taxDeduct = 0.33;
+                    taxDeduct = 0.33 * income;
                 } else if (income >= 18000001 && income <= 40000000) {
-                    taxDeduct = 0.40;
+                    taxDeduct = 0.40 * income;
                 } else {
-                    taxDeduct = 0.45;
+                    taxDeduct = 0.45 * income;
                 }
                 break;
             case 4:
