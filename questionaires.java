@@ -5,9 +5,6 @@ public class questionaires {
     Scanner in = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#.00");
     public int choice = 0;
-    // 0 - unidentified
-    // 1 - true
-    // 2 - false
     String currencyCode[] = { "USD", "EUR", "INR", "JPY", "PHP" };
     int currencyplaceholder;
     int count = 0;
@@ -25,22 +22,14 @@ public class questionaires {
     double taxDeduct = 0;
     double childExpense = 0;
     double totalExpenses = 0;
-
-    // housingutil
     double payForRent = 0;
     double electricity = 0;
     double water = 0;
-
-    // housinglivingcost
     double homeMaintenance = 0;
     double internet = 0;
-
-    // transportation
     double carPayment = 0;
     double carGas = 0;
     double publicTransportation = 0;
-
-    // personalspending
     double personalItems = 0;
     double eating = 0;
 
@@ -437,14 +426,14 @@ public class questionaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question5(); // ilisdan
+            question5(); 
         }
 
         if (temporaryinput == -1) {
-            count = 9; // ilisdan
+            count = 9; 
             error = false;
         } else if (temporaryinput >= 0) {
-            groceriesExpenses = temporaryinput; // ilisdan
+            groceriesExpenses = temporaryinput; 
             error = false;
             temporaryinput = 0;
             count = 11;
@@ -512,17 +501,17 @@ public class questionaires {
                     } catch (InputMismatchException e) {
                         in.nextLine();
                         inputmismatch = true;
-                        temporaryinput = 0; // for error
+                        temporaryinput = 0;
                         followup = 0;
                         question7();
                     }
 
                     if (temporaryinput == -1) {
-                        count = 11; // ilisdan
+                        count = 11; 
                         followup = 0;
                         error = false;
                     } else if (temporaryinput >= 0) {
-                        carPayment = temporaryinput; // ilisdan
+                        carPayment = temporaryinput; 
                         error = false;
                         followup = 1;
                         temporaryinput = 0;
@@ -549,15 +538,15 @@ public class questionaires {
                         inputmismatch = true;
                         temporaryinput = 0;
                         followup = 1;
-                        question7(); // ilisdan
+                        question7(); 
                     }
 
                     if (temporaryinput == -1) {
-                        count = 12; // ilisdan
+                        count = 12; 
                         followup = 0;
                         error = false;
                     } else if (temporaryinput >= 0) {
-                        carGas = temporaryinput; // ilisdan
+                        carGas = temporaryinput; 
                         error = false;
                         followup = 2;
                         count = 13;
@@ -585,15 +574,15 @@ public class questionaires {
                 inputmismatch = true;
                 temporaryinput = 0;
                 choice = 0;
-                question7(); // ilisdan
+                question7(); 
             }
 
             if (temporaryinput == -1) {
                 followup = 0;
-                count = 11; // ilisdan
+                count = 11; 
                 error = false;
             } else if (temporaryinput >= 0) {
-                publicTransportation = temporaryinput; // ilisdan
+                publicTransportation = temporaryinput; 
                 error = false;
                 temporaryinput = 0;
                 count = 13;
@@ -671,15 +660,15 @@ public class questionaires {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question9(); // ilisdan
+                question9(); 
             }
 
             if (temporaryinput == -1) {
-                count = 13; // ilisdan
+                count = 13; 
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                healthCare = temporaryinput; // ilisdan
+                healthCare = temporaryinput; 
                 error = false;
                 temporaryinput = 0;
                 count = 15;
@@ -709,7 +698,7 @@ public class questionaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question10(); // ilisdan
+            question10(); 
         }
 
         if (temporaryinput == -1) {
@@ -720,7 +709,7 @@ public class questionaires {
             }
             error = false;
         } else if (temporaryinput >= 0) {
-            personalItems = temporaryinput; // ilisdan
+            personalItems = temporaryinput; 
             error = false;
             temporaryinput = 0;
             count = 16;
@@ -747,14 +736,14 @@ public class questionaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question11(); // ilisdan
+            question11(); 
         }
 
         if (temporaryinput == -1) {
-            count = 15; // ilisdan
+            count = 15; 
             error = false;
         } else if (temporaryinput >= 0) {
-            eating = temporaryinput; // ilisdan
+            eating = temporaryinput; 
             error = false;
             temporaryinput = 0;
             count = 17;
@@ -825,15 +814,15 @@ public class questionaires {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question13(); // ilisdan
+                question13(); 
             }
 
             if (temporaryinput == -1) {
-                count = 17; // ilisdan
+                count = 17; 
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                debtPayments = temporaryinput; // ilisdan
+                debtPayments = temporaryinput; 
                 error = false;
                 temporaryinput = 0;
                 count = 19;
@@ -860,7 +849,7 @@ public class questionaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question14(); // ilisdan
+            question14(); 
         }
 
         if (temporaryinput == -1) {
@@ -871,7 +860,7 @@ public class questionaires {
             }
             error = false;
         } else if (temporaryinput >= 0) {
-            savingsExpense = temporaryinput; // ilisdan
+            savingsExpense = temporaryinput; 
             error = false;
             temporaryinput = 0;
             count = 20;
@@ -882,6 +871,7 @@ public class questionaires {
 
     public void question15() {
         count = 20;
+        //instead of tax threshold set to 30% we did this
         switch (currencyplaceholder) {
             case 0:
                 // USD
@@ -1027,15 +1017,15 @@ public class questionaires {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question17(); // ilisdan
+                question17(); 
             }
 
             if (temporaryinput == -1) {
-                count = 21; // ilisdan
+                count = 21; 
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                childExpense = temporaryinput; // ilisdan
+                childExpense = temporaryinput; 
                 error = false;
                 temporaryinput = 0;
                 count = 23;

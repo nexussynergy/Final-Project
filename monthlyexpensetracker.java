@@ -85,9 +85,7 @@ public class monthlyexpensetracker{
 
         System.out.printf("%-50s | %-10s \n", "The total amount of expenses is: " + df.format(d.getTotalExpenses()) +  " " + d.currencyCode[d.currencyPlaceholder()], "This is " + df.format(d.getTotalExpenses() / d.getInc() * 100) + "% of your income.");
 
-        //ipakita pila ang nasobra, nya ang advice pud nga apilon ang savings ug makita pilay kulang/sobra kung apilon ang savings
         if(d.getTotalExpenses() < d.getInc()){
-            //if 0 ang percentage
             if((d.getInc() - d.getTotalExpenses()) >= 0 || (d.getInc() - d.getTotalExpenses() < 1)){
                 System.out.printf("%-50s | %-10s \n", "Your remaining balance is: " +  z.format((d.getInc() - d.getTotalExpenses()) + d.getSavingsExpense()) + " " + d.currencyCode[d.currencyPlaceholder()], "This is " + z.format(d.getRemBal() / d.getInc() * 100) + "% of your income.");
             }else{
@@ -103,10 +101,8 @@ public class monthlyexpensetracker{
             }
         }
         
-        //ADVICE
-        
         if(d.getTotalExpenses() < d.getInc()){
-            System.out.println("I am proud of you for staying on budget and saving money this month."); //good job kay naay sobra ug nakasave paka
+            System.out.println("I am proud of you for staying on budget and saving money this month.");
         }
         else{
                 System.out.println("You have insufficient funds.");
@@ -114,13 +110,4 @@ public class monthlyexpensetracker{
         }
         in.close();
     }
-
-    /*
-     * THINGS TO DEBUG
-     * 
-     * divide utilities expense
-     * ALL PROMPTS MUST BE REVISED
-     * repeated prompts = stackable values, solution equal to new variables each
-     * q line 830 - flagged. tax system dev to come up
-     */
 }
