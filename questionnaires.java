@@ -425,14 +425,14 @@ public class questionnaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question5(); 
+            question5();
         }
 
         if (temporaryinput == -1) {
-            count = 9; 
+            count = 9;
             error = false;
         } else if (temporaryinput >= 0) {
-            groceriesExpenses = temporaryinput; 
+            groceriesExpenses = temporaryinput;
             error = false;
             temporaryinput = 0;
             count = 11;
@@ -506,11 +506,11 @@ public class questionnaires {
                     }
 
                     if (temporaryinput == -1) {
-                        count = 11; 
+                        count = 11;
                         followup = 0;
                         error = false;
                     } else if (temporaryinput >= 0) {
-                        carPayment = temporaryinput; 
+                        carPayment = temporaryinput;
                         error = false;
                         followup = 1;
                         temporaryinput = 0;
@@ -537,15 +537,15 @@ public class questionnaires {
                         inputmismatch = true;
                         temporaryinput = 0;
                         followup = 1;
-                        question7(); 
+                        question7();
                     }
 
                     if (temporaryinput == -1) {
-                        count = 12; 
+                        count = 12;
                         followup = 0;
                         error = false;
                     } else if (temporaryinput >= 0) {
-                        carGas = temporaryinput; 
+                        carGas = temporaryinput;
                         error = false;
                         followup = 2;
                         count = 13;
@@ -573,15 +573,15 @@ public class questionnaires {
                 inputmismatch = true;
                 temporaryinput = 0;
                 choice = 0;
-                question7(); 
+                question7();
             }
 
             if (temporaryinput == -1) {
                 followup = 0;
-                count = 11; 
+                count = 11;
                 error = false;
             } else if (temporaryinput >= 0) {
-                publicTransportation = temporaryinput; 
+                publicTransportation = temporaryinput;
                 error = false;
                 temporaryinput = 0;
                 count = 13;
@@ -659,15 +659,15 @@ public class questionnaires {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question9(); 
+                question9();
             }
 
             if (temporaryinput == -1) {
-                count = 13; 
+                count = 13;
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                healthCare = temporaryinput; 
+                healthCare = temporaryinput;
                 error = false;
                 temporaryinput = 0;
                 count = 15;
@@ -697,7 +697,7 @@ public class questionnaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question10(); 
+            question10();
         }
 
         if (temporaryinput == -1) {
@@ -708,7 +708,7 @@ public class questionnaires {
             }
             error = false;
         } else if (temporaryinput >= 0) {
-            personalItems = temporaryinput; 
+            personalItems = temporaryinput;
             error = false;
             temporaryinput = 0;
             count = 16;
@@ -735,14 +735,14 @@ public class questionnaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question11(); 
+            question11();
         }
 
         if (temporaryinput == -1) {
-            count = 15; 
+            count = 15;
             error = false;
         } else if (temporaryinput >= 0) {
-            eating = temporaryinput; 
+            eating = temporaryinput;
             error = false;
             temporaryinput = 0;
             count = 17;
@@ -813,15 +813,15 @@ public class questionnaires {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question13(); 
+                question13();
             }
 
             if (temporaryinput == -1) {
-                count = 17; 
+                count = 17;
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                debtPayments = temporaryinput; 
+                debtPayments = temporaryinput;
                 error = false;
                 temporaryinput = 0;
                 count = 19;
@@ -840,6 +840,9 @@ public class questionnaires {
         if (inputmismatch) {
             System.out.println("\nProgram does not accept non-numerical values!");
         }
+        else if(savingsExpense > income){
+            System.out.println("\nSavings cannot be greater than your income for this month!");
+        }
         System.out.print("\nYour answer: ");
         try {
             inputmismatch = false;
@@ -848,7 +851,7 @@ public class questionnaires {
             in.nextLine();
             inputmismatch = true;
             temporaryinput = 0;
-            question14(); 
+            question14();
         }
 
         if (temporaryinput == -1) {
@@ -859,10 +862,15 @@ public class questionnaires {
             }
             error = false;
         } else if (temporaryinput >= 0) {
-            savingsExpense = temporaryinput; 
+            savingsExpense = temporaryinput;
+            if(savingsExpense > income){
+                count = 19;
+            }
+            else{
+                count = 20;
+            }
             error = false;
             temporaryinput = 0;
-            count = 20;
         } else if (temporaryinput < -1) {
             error = true;
         }
@@ -870,7 +878,7 @@ public class questionnaires {
 
     public void question15() {
         count = 20;
-        //instead of tax threshold set to 30% we did this
+        // instead of tax threshold set to 30% we did this
         switch (currencyplaceholder) {
             case 0:
                 // USD
@@ -1016,15 +1024,15 @@ public class questionnaires {
                 in.nextLine();
                 inputmismatch = true;
                 temporaryinput = 0;
-                question17(); 
+                question17();
             }
 
             if (temporaryinput == -1) {
-                count = 21; 
+                count = 21;
                 choice = 0;
                 error = false;
             } else if (temporaryinput >= 0) {
-                childExpense = temporaryinput; 
+                childExpense = temporaryinput;
                 error = false;
                 temporaryinput = 0;
                 count = 23;
@@ -1089,6 +1097,6 @@ public class questionnaires {
     }
 
     public double getRemBal() {
-        return (getInc() - getTotalExpenses()) + getSavingsExpense();
+        return getInc() - getTotalExpenses();
     }
 }

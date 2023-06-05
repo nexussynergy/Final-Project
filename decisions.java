@@ -61,64 +61,46 @@ public class decisions extends questionnaires {
                 } else if (choice == 2) {
                     System.out.println("Thank you for using our system.");
                     System.exit(0);
-                }
-                else if(choice == 3){
+                } else if (choice == 3) {
                     count = 3;
                     clear();
                     heading();
                 }
             } else if (count == 5) {
                 question0();
-            }
-            else if(count == 6){
+            } else if (count == 6) {
                 question1();
-            }
-            else if(count == 7){
+            } else if (count == 7) {
                 question2();
-            }
-            else if(count == 8){
+            } else if (count == 8) {
                 question3();
-            }
-            else if(count == 9){
+            } else if (count == 9) {
                 question4();
-            }
-            else if(count == 10){
+            } else if (count == 10) {
                 question5();
-            }
-            else if(count == 11){
+            } else if (count == 11) {
                 question6();
-            }
-            else if(count == 12){
+            } else if (count == 12) {
                 question7();
-            }
-            else if(count == 13){
+            } else if (count == 13) {
                 question8();
-            }
-            else if(count == 14){
+            } else if (count == 14) {
                 question9();
-            }
-            else if(count == 15){
+            } else if (count == 15) {
                 question10();
-            }
-            else if(count == 16){
+            } else if (count == 16) {
                 question11();
-            }
-            else if(count == 17){
+            } else if (count == 17) {
                 question12();
-            }
-            else if(count == 18){
+            } else if (count == 18) {
                 question13();
-            }
-            else if(count == 19){
+            } else if (count == 19) {
                 question14();
-            }
-            else if(count == 20){
+            } else if (count == 20) {
                 question15();
-            }
-            else if(count == 21){
+            } else if (count == 21) {
                 question16();
-            }
-            else if(count == 22){
+            } else if (count == 22) {
                 question17();
             }
         }
