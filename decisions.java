@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class decisions extends questionaires {
+public class decisions extends questionnaires {
     Scanner in = new Scanner(System.in);
 
     public void invalidArgument() {

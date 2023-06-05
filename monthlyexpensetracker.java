@@ -7,7 +7,7 @@ public class monthlyexpensetracker{
         DecimalFormat df = new DecimalFormat("#.##");
         DecimalFormat z = new DecimalFormat("0.##");
         Scanner in = new Scanner(System.in);
-        questionaires q = new questionaires();
+        questionnaires q = new questionnaires();
         decisions d = new decisions();
 
         q.clear();
